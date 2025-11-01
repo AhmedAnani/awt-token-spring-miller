@@ -1,0 +1,23 @@
+spring:
+  server:
+    port: 8080
+  datasource:
+    url: jdbc:postgresql://localhost:5432/OTPAuth
+    username: postgres
+    password: 1234
+  jpa:
+    show-sql: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: yasuo5428@gmail.com
+    password: nfiv dmaq thzh jrfc
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+logging:
+    level:
+      org.springframework.security: DEBUG
