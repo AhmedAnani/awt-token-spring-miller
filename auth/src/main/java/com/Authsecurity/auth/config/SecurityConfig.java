@@ -45,23 +45,10 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-//        httpSecurity.csrf(c -> c.disable())
-//                .authorizeHttpRequests(auth -> auth
-//                        .requestMatchers("/auth/login").permitAll()
-//                        .anyRequest().authenticated())
-//                .sessionManagement(a -> a
-//                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-//                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class).exceptionHandling(ex -> ex
-//                        .authenticationEntryPoint((request, response, authException) -> {
-//                            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
-//                        })
-//                );
-//
-//        return httpSecurity.build();
         httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/auth/login","/auth/otp","/auth/register").permitAll()
+                        .requestMatchers("/auth/login","/auth/otp","/auth/register","/profile/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session

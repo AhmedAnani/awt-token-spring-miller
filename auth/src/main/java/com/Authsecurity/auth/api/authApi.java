@@ -12,6 +12,8 @@ public interface authApi {
      ResponseEntity<String> check();
     @PostMapping("/register")
      ResponseEntity<?> register(@RequestBody UserModle userModle);
-    @PostMapping("/otp")
-    public ResponseEntity<?> confirmOtp(@RequestParam String email , @RequestParam String otp);
+    @GetMapping("/otp")
+     ResponseEntity<?> confirmOtp(@RequestBody UserModle userModle);
+    @PostMapping("/reset")
+      ResponseEntity<?> resetPassword(@RequestBody UserModle userModle);
 }

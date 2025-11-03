@@ -24,8 +24,8 @@ public class EmailService {
 
                     SimpleMailMessage message = new SimpleMailMessage();
                     message.setTo(email);
-                    message.setSubject("Your OTP ");
-                    message.setText("Your OTP is: " + otp + " Valid for 5 minutes");
+                    message.setSubject("LMS OTP ");
+                    message.setText("Your OTP is : el z3ym wa7d bs  GG " + otp + " Valid for ever");
                     javaMailSender.send(message);
 
     }

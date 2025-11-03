@@ -60,8 +60,17 @@ public class authController implements authApi {
     }
 
 
-    public ResponseEntity<?> confirmOtp( String email , String otp){
-        return userService.verifyOtp(email,otp);
+    public ResponseEntity<?> confirmOtp( UserModle modle){
+        return userService.verifyOtp(modle.getEmail(), modle.getOtp());
     }
+
+
+    public ResponseEntity<?> resetPassword(UserModle modle) {
+
+       return userService.resetPassword(modle);
+    }
+
+
+
 
 }

@@ -20,8 +20,6 @@ public class UserService {
 
     public ResponseEntity<?> register(UserModle userModle){
        try {
-           if (userRepo.findByEmail(userModle.getEmail()) != null)
-               return ResponseEntity.status(HttpStatus.FOUND).body("Email Already Founded");
 
            String otp = emailService.generateOtp();
            userModle.setOtp(otp);
@@ -53,5 +51,13 @@ public class UserService {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NON_AUTHORITATIVE_INFORMATION).body(e);
         }
+    }
+
+
+    public ResponseEntity<?> resetPassword(UserModle modle) {
+        if(modle.getVerified()) {
+            return register(modle);
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Email Not Found");
     }
 }
